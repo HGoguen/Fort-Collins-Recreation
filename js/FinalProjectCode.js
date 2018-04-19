@@ -15,13 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }).addTo(map);
 
     //My Feature Layer
-    var parksFort = L.esri.featureLayer({
-        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/ArcGIS/rest/services/FortCollinsNatureAreas/FeatureServer/0',
-        opacity: 0.2,      
-    }).addTo(map);
-
-    var naturalFort = L.esri.featureLayer({
+     var naturalFort = L.esri.featureLayer({
         url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/ArcGIS/rest/services/FortCollinsNatureAreas/FeatureServer/1',      
+    }).addTo(map);
+    
+    var parksFort = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/ArcGIS/rest/services/FortCollinsNatureAreas/FeatureServer/0',      
     }).addTo(map);
 
 
