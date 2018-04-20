@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var map = L.map("map").setView([40.55, -105.0844], 12);
 
-    // require(["esri/map", "esri/layers/FeatureLayer", 
-    //"esri/layers/ArcGISDynamicMapServiceLayer", "dojo/domReady!"],
-    //function (Map, FeatureLayer, ArcGISDynamicMapServiceLayer){}
 
     //Basemap Layer
     L.esri.basemapLayer('Imagery').addTo(map);
@@ -11,16 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Hosted Feature Layer
     var pathLayer = L.esri.featureLayer({
-        url: 'http://services.arcgis.com/Vr4pJuhEJB9F4bUA/arcgis/rest/services/TrailsNpaths/FeatureServer'
+        url: 'http://services.arcgis.com/Vr4pJuhEJB9F4bUA/arcgis/rest/services/TrailsNpaths/FeatureServer/0'
     }).addTo(map);
 
     //My Feature Layer
-     var naturalFort = L.esri.featureLayer({
-        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/ArcGIS/rest/services/FortCollinsNatureAreas/FeatureServer/1',      
+    var naturalFort = L.esri.featureLayer({
+        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/FortCollinsNatureAreas/FeatureServer/1'      
     }).addTo(map);
     
     var parksFort = L.esri.featureLayer({
-        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/ArcGIS/rest/services/FortCollinsNatureAreas/FeatureServer/0',      
+        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/ArcGIS/rest/services/FortCollinsNatureAreas/FeatureServer/0'      
     }).addTo(map);
 
 
