@@ -10,27 +10,33 @@ document.addEventListener('DOMContentLoaded', function() {
     var pathLayer = L.esri.featureLayer({
         url: 'http://services.arcgis.com/Vr4pJuhEJB9F4bUA/arcgis/rest/services/TrailsNpaths/FeatureServer/0'
     }).addTo(map);
-    
-     var popupTemplate = "<h3>{NAME}</h3> Bike use: {BIKEUSE} <br> Horse Use: {HORSEUSE} <br> Surface Type: {CONSTRUCTI}";
 
-      pathLayer.bindPopup(function(e){
-        return L.Util.template(popupTemplate, e.feature.properties)
-      });
+    var popupTemplate1 = "<h3>{NAME}</h3> Bike use: {BIKEUSE} <br> Horse Use: {HORSEUSE} <br> Surface Type: {CONSTRUCTI}";
+
+    pathLayer.bindPopup(function(e){
+        return L.Util.template(popupTemplate1, e.feature.properties)
+    });
 
     //My Feature Layer
     var naturalFort = L.esri.featureLayer({
-        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/FortCollinsNatureAreas/FeatureServer/1'      
+        url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/arcgis/rest/services/NatureAreasFortCollins/FeatureServer/0'      
     }).addTo(map);
-    
+
+    var popupTemplate3 = "<h3>{NA_NAME}</h3> This natural area is {ACRES} Acres";
+
+    naturalFort.bindPopup(function(e){
+        return L.Util.template(popupTemplate3, e.feature.properties)
+    });
+
     var parksFort = L.esri.featureLayer({
         url: 'https://services.arcgis.com/YseQBnl2jq0lrUV5/ArcGIS/rest/services/FortCollinsNatureAreas/FeatureServer/0'      
     }).addTo(map);
 
     var popupTemplate = "<h3>{PARKNAME}</h3> This is a {PARKTYPE} <br> Parking Onstreet: {PRKNGONST} <br> Parking Off Street: {PRKNGOFFST}";
 
-      parksFort.bindPopup(function(e){
+    parksFort.bindPopup(function(e){
         return L.Util.template(popupTemplate, e.feature.properties)
-      });
+    });
 
     // create the geocoding control and add it to the map
     var searchControl = L.esri.Geocoding.geosearch().addTo(map);
